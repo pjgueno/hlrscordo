@@ -1,0 +1,289 @@
+
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    width:100%;
+}
+
+/* Portrait layout (default) */
+.app {
+    position:absolute;             /* position in the center of the screen */
+    left:0px;
+    top:0px;
+    height:100vh;                   /* text area height */
+    width:100vw;                   /* text area width */
+}
+
+
+#map{
+    height:70vh;               
+    width:100vw; 
+    z-index: 0;
+    
+}
+
+img.leaflet-tile{
+             filter:  grayscale(85%) saturate(150%) hue-rotate(60deg) contrast(90%) brightness(110%);
+            -webkit-filter: grayscale(85%) saturate(150%) hue-rotate(60deg) contrast(90%) brightness(110%);      
+}
+
+
+#controls{
+position: relative;
+width: 100vw;
+height: 30vh;
+background:rgba(78, 202, 194,1.0);
+
+}
+
+button{
+    display: inline-block;
+    width: 15vw;
+    height: 25px;
+    margin: 10px;
+    background-color: #2196F3;
+    color:white;
+    border-radius: 2px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+    border-color: #2196F3;
+    font-weight: bold;
+}
+
+#ligne2{
+width:80vw;
+margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+    
+
+#ligne1{
+    
+   width:80vw; 
+    margin: 0 auto;
+     margin-top: 10px;
+    margin-bottom: 10px;
+    
+}
+
+
+
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+    position:absolute;             /* position in the center of the screen */
+    left:0px;
+    top:0px;
+    height:100vh;                   /* text area height */
+    width:100vw;                   /* text area width */
+    }
+}
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 17px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(13px);
+  -ms-transform: translateX(13px);
+  transform: translateX(13px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 17px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+.legend {
+    font-family: arial, sans-serif;
+    color:black;
+    font-size: 10px; 
+    position: absolute;
+    left: -15px;
+    bottom: 0px;
+    height: 40%;
+    width: 100px; 
+    z-index: 1000;
+    background-color: rgba(238,238,238,0.0);
+    }
+
+#legend-inner-pm {
+        position: absolute;
+        left: 30px;
+        bottom: 20px;
+        z-index: 1001;
+        pointer-events: none;    
+        height: 80%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        }
+
+#legend-inner-pm .gradient {
+        opacity: 1.0;
+        width: 20px;
+        background: -webkit-linear-gradient(bottom, #00796b 0%, #00796b 16%, #f9a825 32%, #e65100 48%, #dd2c00 72%, #dd2c00 80%, #8c0084 100%);
+        background: linear-gradient(to top, #00796b 0%, #00796b 16%, #f9a825 32%, #e65100 48%, #dd2c00 72%, #dd2c00 80%, #8c0084 100%);
+        position: relative;
+        }
+
+#legend-inner-pm .gradient .limit {
+        height: 2px;
+        width: 42px;
+        background-color: #d50000;
+        position: absolute;
+        left: -10px;
+        bottom: calc(40% - 1px);
+        }
+
+#legend-inner-pm .labels {
+        width: 150px;
+        position: relative;
+        }
+
+#legend-inner-pm .labels .label {
+        position: absolute;
+        -webkit-transform: translateY(50%);
+        transform: translateY(50%);
+        }
+
+#legend-inner-pm .labels .label:before {
+        content: '\2013   ';
+        }
+
+#legend-inner-pm .labels .label.limit {
+        color: #d50000;
+        }
+#legend-inner-pm .gradient .limit {
+    height: 2px;
+    width: 30px;
+    background-color: #d50000;
+    position: absolute;
+    left: -5px;
+    bottom: calc(40% - 1px);
+}
+
+.leaflet-popup-content-wrapper{
+    width: 250px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td, th {
+        width:15vw;
+
+    border: 1px solid black;
+    background-color: white;
+}
+
+#on_off{
+    width: 15vw;
+    margin: 10px;
+    display: inline-block;
+}
+
+#selector{
+    width: 15vw;
+    margin: 10px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+#data{
+    width: 15vw;
+    margin: 10px;
+        display: inline-block;
+}
+
+#coordinates{
+    width: 15vw;
+    margin: 10px;
+        display: inline-block;
+}
+
+#label{
+    width: 15vw;
+    margin: 10px;
+    font-weight: bold;
+}
+
+
+#linechart {
+    pointer-events: all;  
+    width: 100vw;
+    height: 50vh;
+    position: absolute;
+    top:50vh;
+    z-index: 1000;
+    background: white;
+}
+
+.line1 {
+  fill: none;
+  stroke: blue;
+  stroke-width: 2px;
+}
+    
+.line2 {
+  fill: none;
+  stroke: red;
+  stroke-width: 2px;
+}

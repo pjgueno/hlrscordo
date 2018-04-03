@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'"/>
+        
+<!--        ; 'img-src' 'self' 'data:'-->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet-src.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+
+        <title>HLRS Feinstaub</title>
+    </head>
+    <body>
+        <div class="app">
+            
+            <div id="controls">
+                
+                       <div id='ligne1'>
+   
+          <div id='on_off'>
+            <label class="switch" id="switch">
+              <input id="switch" type="checkbox" onclick="switcher()">
+              <span class="slider round"></span>
+            </label>
+            </div>
+
+        <button id="loadall" value="loadall" onclick="dataloader(this.value)">Load all</button>
+          <button id="save" value="save" >Save</button>
+
+                           
+           </div>
+
+        <div id='ligne2'>
+            
+            
+          <form id="selector">
+          <input type="radio" name="switch" value="P1" onclick="selectPM(this.value)" checked> PM10<br>
+          <input type="radio" name="switch" value="P2" onclick="selectPM(this.value)"> PM2.5<br>
+        </form>
+            
+          <button id="loadown"  value="loadown" >Load own</button>
+          <button id="send"  value="send" >Send</button>
+          </div>
+
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <div id ='map'>
+            
+            
+              <div id ='legendcontainer'>
+        <div class ="legend" id="legendpm">
+            <div id="legend-inner-pm">
+                <div class="gradient">
+                    <div class="limit"></div>
+                </div>
+                <div class="labels">
+                    <div class="label" style="bottom: 100%;"><b>500</b></div>
+                    <div class="label" style="bottom: 80%;"><b>100</b></div>
+                    <div class="label" style="bottom: 60%;"><b>75</b></div>
+                    <div class="label limit" style="bottom: 41%;"><b>50</b></div>
+                    <div class="label" style="bottom: 20%;"><b>25</b></div>
+                    <div class="label" style="bottom: 1%;"><b>0 &micro;g/m&#179;</b></div>
+                </div>
+            </div>
+        </div>        
+    </div>
+            
+            
+            
+            </div>
+
+            
+            
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
